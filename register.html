@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="container">
+            <span class="logo">logo</span>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="about.html">About Us</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li class="btn"><a href="contacts.html">Contacts</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <h2>Регистрация</h2>
+  <form id="registerForm">
+    <label>Имя пользователя:</label><br>
+    <input type="text" id="username" required><br><br>
+    
+    <label>Email:</label><br>
+    <input type="email" id="email" required><br><br>
+    
+    <label>Пароль:</label><br>
+    <input type="password" id="password" required><br><br>
+    
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    const form = document.getElementById("registerForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      if (username.length < 3) {
+        message.textContent = "Имя пользователя должно быть не менее 3 символов";
+        return;
+      }
+
+      if (password.length < 6) {
+        message.textContent = "Пароль должен быть не менее 6 символов";
+        return;
+      }
+
+      // Проверим, есть ли уже такой пользователь
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+      const exists = users.find(u => u.email === email);
+
+      if (exists) {
+        message.textContent = "Пользователь с таким email уже зарегистрирован.";
+        return;
+      }
+
+      // Сохраняем нового пользователя
+      users.push({ username, email, password }); // В реальности пароль нужно хешировать!
+      localStorage.setItem("users", JSON.stringify(users));
+
+      message.textContent = "Регистрация успешна!";
+      form.reset(); // очистим форму
+    });
+  </script>
+        </div>
+    </div>
+</body>
+</html>

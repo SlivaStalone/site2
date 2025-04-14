@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wibsite</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <div class="wrapper">
+    <header class="container">
+        <span class="logo">logo</span>
+        <nav>
+            <ul>
+                <li class="active"><a href="#"home></a></li>
+                <li><a href="about.html">about sus</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="register.html">REGISTRACIYA!!!</a></li>
+                <li class="btn"><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="hero container">
+        <div class="hero--info">
+            <h2>chel ti</h2>
+            <h1>o bozhe chel ti work for our clients</h1>
+            <p>vse chto mi delaem eto dla chelov vsem privet</p>
+            <button class="btn">
+                get more details
+            </button>
+        </div>
+        <img src="img/chel.png" alt="">
+        <div class="container email">
+            <h3>Ya ukradu tvoi danni</h3>
+            <p>Napishi svoi danni email i vse</p>
+            <div class="block">
+                <div>
+                    <h4>vpisivai!!!</h4>
+                    <p>nu plz napishi danni chtobi ya ih ukral i u teba ne bilo bolshe pochti</p>
+                    <img src="img/eureu.jpg" alt="">
+                </div>
+                <div>
+                    <input type="email" id="emailField" placeholder="enter danni cartochki">
+                    <button onclick="checkEmail()">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<footer>
+    <div>
+        <div class="blocks container">
+            <div>
+                <span class="logo">logo</span>
+                <p>
+                    che te nado?
+                </p>
+            </div>
+            <div>
+                <h4>
+                    about sus
+                </h4>
+                <ul>
+                    <li>
+                        sus</li> 
+                        <li>lol</li>
+                    
+                </ul>
+            </div>
+            <div>
+                <h4>contack sus</h4>
+            <p>ne pishi suda</p>
+        </div>
+        
+    </div>
+    <hr>
+    <p>Copiright netu</p>
+</footer>
+<script>
+    function checkEmail() {
+        let email = document.querySelector('#emailField').value;
+        if (!email.includes('@')) alert('ti ne napisal sabaka');
+        else if (!email.includes('.')) alert('gde tochka?');
+        else alert('norm');
+    }
+</script>
+
+</body>
+</html>
